@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kisaan Saathi - Farmer’s Agri-Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-50 font-sans">
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-green-700 to-green-500 text-white p-4 text-center sticky top-0 shadow-lg z-50">
+    <div class="relative max-w-6xl mx-auto">
+      <h1 class="text-3xl font-extrabold flex items-center justify-center gap-2">
+        🌾 Kisaan Saathi
+      </h1>
+      <p class="text-sm tracking-wide">Smart crop, soil & weather insights for Gujarat Farmers</p>
+      <!-- Language Selector -->
+      <div class="absolute top-0 right-0 mt-2">
+        <select id="languageSelect" class="p-2 rounded-xl border shadow-sm bg-white text-black hover:bg-gray-100">
+          <option value="en">🇬🇧 English</option>
+          <option value="hi">🇮🇳 हिन्दी</option>
+          <option value="gu">🇮🇳 ગુજરાતી</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- District Form -->
+  <section class="p-6 max-w-lg mx-auto bg-white rounded-2xl shadow-lg hover:shadow-xl transition mt-6">
+    <h2 class="text-lg font-bold mb-3 flex items-center gap-2">
+      🌍 <span id="districtLabel">Enter Your District (Gujarat):</span>
+    </h2>
+    <select id="district" class="w-full p-2 border rounded-lg shadow-sm focus:ring focus:ring-green-300">
+      <option value="">-- Select District --</option>
+      <option>Ahmedabad</option><option>Amreli</option><option>Anand</option><option>Aravalli</option>
+      <option>Banaskantha</option><option>Bharuch</option><option>Bhavnagar</option><option>Botad</option>
+      <option>Chhota Udaipur</option><option>Dahod</option><option>Dang</option><option>Devbhoomi Dwarka</option>
+      <option>Gandhinagar</option><option>Gir Somnath</option><option>Jamnagar</option><option>Junagadh</option>
+      <option>Kheda</option><option>Kutch</option><option>Mahisagar</option><option>Mehsana</option>
+      <option>Morbi</option><option>Narmada</option><option>Navsari</option><option>Panchmahal</option>
+      <option>Patan</option><option>Porbandar</option><option>Rajkot</option><option>Sabarkantha</option>
+      <option>Surat</option><option>Surendranagar</option><option>Tapi</option><option>Vadodara</option>
+      <option>Valsad</option>
+    </select>
+    <button id="submitBtn" class="mt-4 w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-2 rounded-xl font-semibold hover:scale-105 transition">
+      🚜 Get Crop Recommendations
+    </button>
+  </section>
+
+  <!-- Results -->
+  <section id="results" class="p-6 max-w-5xl mx-auto hidden">
+    <h2 class="text-2xl font-bold mb-4 text-green-700" id="resultsTitle">Results</h2>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div id="crops" class="p-4 bg-green-100 rounded-xl shadow">
+        <h3 class="font-semibold text-green-800">🌱 Recommended Crops</h3>
+        <ul class="list-disc ml-6 text-sm mt-2"></ul>
+      </div>
+      <div id="nutrients" class="p-4 bg-yellow-100 rounded-xl shadow">
+        <h3 class="font-semibold text-yellow-800">🧪 Soil Nutrients & Fertilizers</h3>
+        <ul class="list-disc ml-6 text-sm mt-2"></ul>
+      </div>
+      <div id="alerts" class="p-4 bg-red-100 rounded-xl shadow">
+        <h3 class="font-semibold text-red-800">⚠️ Weather & Disaster Alerts</h3>
+        <ul class="list-disc ml-6 text-sm mt-2"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Chat -->
+  <section class="p-6 max-w-3xl mx-auto bg-white rounded-2xl shadow-lg mt-6">
+    <h2 class="text-lg font-semibold">Ask an Expert (AI Powered)</h2>
+    <textarea id="userQuery" class="w-full p-2 border rounded mt-2 focus:ring focus:ring-blue-300" rows="3" placeholder="Type your farming question here..."></textarea>
+    <button id="askBtn" class="mt-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white py-2 px-6 rounded-xl hover:scale-105 transition">🤖 Ask AI</button>
+    <div id="aiResponse" class="mt-3 p-3 bg-gray-100 rounded hidden"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-green-900 to-green-700 text-white mt-12 py-8 px-6">
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div>
+        <h3 class="text-xl font-bold">🌾 Kisaan Saathi</h3>
+        <p class="text-sm mt-2">Helping Farmers Grow with technology and insights.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">Quick Links</h4>
+        <ul class="text-sm space-y-1 mt-2">
+          <li><a href="aboutus.html" class="hover:underline">About Us</a></li>
+          <li><a href="https://pmkisan.gov.in/homenew.aspx?aspxerrorpath=/BeneficiaryStatus_New.aspx" class="hover:underline">Govt. Schemes</a></li>
+          <li><a href="#" class="hover:underline">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold">Follow Us</h4>
+        <div class="flex gap-4 mt-2">
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" class="w-6 h-6"/></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" class="w-6 h-6"/></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" class="w-6 h-6"/></a>
+        </div>
+      </div>
+    </div>
+    <p class="text-center text-xs mt-6 opacity-70">⚠️ Disclaimer: The information provided is for educational purposes only. Please consult local agricultural experts before making critical farming decisions.<br>© 2025 Kisaan Saathi. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // ✅ Gemini API Key (dummy here, replace with yours)
+    const apiKey = "AIzaSyCTqP7WG4x5JE2RKn9Eq4zqD4g1T5DBnoA";
+
+    const translations = {
+      en: {
+        districtLabel: "Enter Your District (Gujarat):",
+        resultsTitle: "Results",
+        cropsHeading: "🌱 Recommended Crops",
+        nutrientsHeading: "🧪 Soil Nutrients & Fertilizers Needed",
+        alertsHeading: "⚠️ Weather & Disaster Alerts",
+        bestSeason: "Best Season"
+      },
+      hi: {
+        districtLabel: "अपना ज़िला दर्ज करें (गुजरात):",
+        resultsTitle: "परिणाम",
+        cropsHeading: "🌱 अनुशंसित फसलें",
+        nutrientsHeading: "🧪 आवश्यक पोषक तत्व और उर्वरक",
+        alertsHeading: "⚠️ मौसम और आपदा चेतावनी",
+        bestSeason: "सबसे अच्छा मौसम"
+      },
+      gu: {
+        districtLabel: "તમારો જિલ્લો દાખલ કરો (ગુજરાત):",
+        resultsTitle: "પરિણામ",
+        cropsHeading: "🌱 ભલામણ કરેલી પાકો",
+        nutrientsHeading: "🧪 જરૂરી પોષક તત્વો અને ખાતર",
+        alertsHeading: "⚠️ હવામાન અને આપત્તિ ચેતવણીઓ",
+        bestSeason: "સૌથી યોગ્ય ઋતુ"
+      }
+    };
+
+    const langSelect = document.getElementById("languageSelect");
+    const districtLabel = document.getElementById("districtLabel");
+    const resultsTitle = document.getElementById("resultsTitle");
+
+    langSelect.addEventListener("change", () => {
+      const t = translations[langSelect.value];
+      districtLabel.textContent = t.districtLabel;
+      resultsTitle.textContent = t.resultsTitle;
+      document.querySelector("#crops h3").textContent = t.cropsHeading;
+      document.querySelector("#nutrients h3").textContent = t.nutrientsHeading;
+      document.querySelector("#alerts h3").textContent = t.alertsHeading;
+    });
+
+    // ✅ Gemini Fetch
+    async function askGemini(prompt) {
+      try {
+        const res = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
+          body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
+        });
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        const data = await res.json();
+        return data.candidates[0]?.content?.parts[0]?.text || "";
+      } catch (err) {
+        console.error("Gemini API Error:", err);
+        return "⚠️ Could not fetch data. Try again later.";
+      }
+    }
+
+    // ✅ District Recommendations
+    document.getElementById("submitBtn").addEventListener("click", async () => {
+      const district = document.getElementById("district").value;
+      if (!district) return alert("Please select a district.");
+      const lang = langSelect.value;
+
+      const prompt = `Provide Gujarat-specific crop recommendations, soil nutrients, and weather alerts for district: ${district}. Return the answer strictly in ${lang} language. Respond only in valid JSON format like: { "crops": ["Crop1"], "nutrients": ["Nutrient1"], "alerts": ["Alert1"], "season": "Best season info" }`;
+
+      const responseText = await askGemini(prompt);
+
+      let data;
+      try {
+        const jsonMatch = responseText.match(/\{[\s\S]*\}/);
+        data = jsonMatch ? JSON.parse(jsonMatch[0]) : { crops: [], nutrients: [], alerts: [] };
+      } catch {
+        data = { crops: [], nutrients: [], alerts: [] };
+      }
+
+      document.getElementById("results").classList.remove("hidden");
+      const t = translations[lang];
+
+      const cropsList = document.querySelector("#crops ul");
+      cropsList.innerHTML = data.crops.map(c => `<li class="bg-white px-2 py-1 rounded mt-1 shadow-sm">${c}</li>`).join("");
+      cropsList.innerHTML += `<p class="mt-2 text-sm text-gray-600">${t.bestSeason}: <span class="font-semibold">${data.season || "N/A"}</span></p>`;
+
+      document.querySelector("#nutrients ul").innerHTML = data.nutrients.map(n => `<li class="bg-white px-2 py-1 rounded mt-1 shadow-sm">${n}</li>`).join("");
+      document.querySelector("#alerts ul").innerHTML = data.alerts.map(a => `<li class="bg-white px-2 py-1 rounded mt-1 shadow-sm">${a}</li>`).join("");
+    });
+
+    // ✅ Free-form AI Chat
+    document.getElementById("askBtn").addEventListener("click", async () => {
+      const query = document.getElementById("userQuery").value;
+      if (!query) return;
+      const lang = langSelect.value;
+
+      const prompt = `Answer the following farmer's question in ${lang} language:\n${query}`;
+      const reply = await askGemini(prompt);
+
+      document.getElementById("aiResponse").classList.remove("hidden");
+      document.getElementById("aiResponse").textContent = reply;
+    });
+  </script>
+</body>
+</html>
